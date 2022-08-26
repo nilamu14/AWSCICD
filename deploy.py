@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-
+'''
 import os
 
 from sagemaker.estimator import Estimator
@@ -13,7 +13,7 @@ endpoint_instance_type = 'ml.m5.large'
 
 BUCKET_NAME = 'sample-sagemaker-cicd-tuto1'
 PREFIX = 'bouston-housing-regression'
-OBJECT_KEY = f'{PREFIX}/reports.csv'
+##OBJECT_KEY = f'{PREFIX}/reports.csv'
 
 s3 = boto3.resource('s3')
 
@@ -30,8 +30,8 @@ except botocore.exceptions.ClientError as e:
        else:
               raise
 
-reports_df['date_time'] = pd.to_datetime(reports_df['date_time'], format='%Y-%m-%d %H:%M:%S')
-latest_training_job_name = reports_df.sort_values(['date_time'], ascending=False).training_job_name.values[0]
+##reports_df['date_time'] = pd.to_datetime(reports_df['date_time'], format='%Y-%m-%d %H:%M:%S')
+##latest_training_job_name = reports_df.sort_values(['date_time'], ascending=False).training_job_name.values[0]
 attached_estimator = Estimator.attach(latest_training_job_name)
 
 
@@ -43,3 +43,5 @@ attached_predictor = attached_estimator.deploy(initial_instance_count=initial_in
                                                       "Value": "ali@datachef.co"}],
                                                wait=False)
 print(attached_predictor.endpoint_name)
+
+'''
