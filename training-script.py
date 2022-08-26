@@ -126,8 +126,8 @@ def main():
     GITHUB_SHA = os.environ['GITHUB_SHA']
     TRAINING_JOB_NAME = os.environ['TRAINING_JOB_NAME']
 
-    update_report_file(metrics_dictionary=metrics_dictionary, hyperparameters=hyperparameters,
-                       commit_hash=GITHUB_SHA, training_job_name=TRAINING_JOB_NAME, prefix=PREFIX, bucket_name=BUCKET_NAME)
+    #update_report_file(metrics_dictionary=metrics_dictionary, hyperparameters=hyperparameters,
+    #                   commit_hash=GITHUB_SHA, training_job_name=TRAINING_JOB_NAME, prefix=PREFIX, bucket_name=BUCKET_NAME)
 
 if __name__ == '__main__':
     main()
